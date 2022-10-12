@@ -1,3 +1,4 @@
+/*
 console.log("1) " + this);	// window
 
 function f() {
@@ -20,3 +21,37 @@ person.getName();
 console.log("4) " + typeof this);
 console.log("5) " + person instanceof Object);
 console.log("6) " + this instanceof Window);
+*/
+
+
+// DOM Event handling
+// Event, Event Target, Event Handler (= Event callback function)
+// click: Event, onclick: Event Attribute
+/*
+function clickLog() {
+	console.log("버튼이 클릭되었습니다!");
+}
+window.onload = function() {
+	let btn = document.getElementById("btn");
+	btn.addEventListener("click", clickLog);
+	let btn2 = document.getElementById("btn2");
+	btn2.addEventListener("click", function() {
+		btn.removeEventListener("click", clickLog)
+	});
+}
+*/
+
+
+window.addEventListener("load", function() {
+	let btn = document.getElementById("btn");
+	btn.addEventListener("click", function() {
+		console.log(this);
+	});
+});
+
+/* JQuery 방식
+$(function() {
+	$("btn").click(function() {
+	});
+});
+*/
